@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-gt-background via-gt-background to-gt-card"></div>
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gt-primary/5 rounded-full blur-3xl animate-pulse"></div>
