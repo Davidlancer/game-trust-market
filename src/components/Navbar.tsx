@@ -48,6 +48,12 @@ const Navbar = () => {
               Sell
             </Link>
             <Link 
+              to="/platforms" 
+              className="text-gt-text/80 hover:text-gt-primary font-medium transition-colors duration-200"
+            >
+              All Platforms
+            </Link>
+            <Link 
               to="/how-it-works" 
               className="text-gt-text/80 hover:text-gt-primary font-medium transition-colors duration-200"
             >
@@ -57,13 +63,17 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="gt-button-ghost">
-              <User className="w-4 h-4 mr-2" />
-              Sign In
-            </Button>
-            <Button className="gt-button-primary">
-              Get Started
-            </Button>
+            <Link to="/login">
+              <Button variant="ghost" className="gt-button-ghost">
+                <User className="w-4 h-4 mr-2" />
+                Sign In
+              </Button>
+            </Link>
+            <Link to="/register">
+              <Button className="gt-button-primary">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -94,6 +104,13 @@ const Navbar = () => {
                 Sell
               </Link>
               <Link 
+                to="/platforms" 
+                className="block text-gt-text hover:text-gt-primary font-medium transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                All Platforms
+              </Link>
+              <Link 
                 to="/how-it-works" 
                 className="block text-gt-text hover:text-gt-primary font-medium transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -101,13 +118,17 @@ const Navbar = () => {
                 How It Works
               </Link>
               <div className="pt-4 border-t border-gt-border space-y-3">
-                <Button variant="ghost" className="w-full gt-button-ghost">
-                  <User className="w-4 h-4 mr-2" />
-                  Sign In
-                </Button>
-                <Button className="w-full gt-button-primary">
-                  Get Started
-                </Button>
+                <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button variant="ghost" className="w-full gt-button-ghost">
+                    <User className="w-4 h-4 mr-2" />
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/register" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button className="w-full gt-button-primary">
+                    Get Started
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

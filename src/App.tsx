@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Marketplace from "./pages/Marketplace";
+import Sell from "./pages/Sell";
+import Platforms from "./pages/Platforms";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,9 +25,10 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/sell" element={<Sell />} />
+          <Route path="/platforms" element={<Platforms />} />
           {/* Game-specific routes */}
           <Route path="/game/:slug" element={<div className="min-h-screen bg-gt-background text-gt-text flex items-center justify-center"><h1 className="text-4xl font-heading">Game Page Coming Soon</h1></div>} />
-          <Route path="/sell" element={<div className="min-h-screen bg-gt-background text-gt-text flex items-center justify-center"><h1 className="text-4xl font-heading">Sell Page Coming Soon</h1></div>} />
           <Route path="/listing/:id" element={<div className="min-h-screen bg-gt-background text-gt-text flex items-center justify-center"><h1 className="text-4xl font-heading">Listing Details Coming Soon</h1></div>} />
           <Route path="/how-it-works" element={<div className="min-h-screen bg-gt-background text-gt-text flex items-center justify-center"><h1 className="text-4xl font-heading">How It Works Coming Soon</h1></div>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
