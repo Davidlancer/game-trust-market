@@ -2,6 +2,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
+import { TrendingUp, Users, Shield } from 'lucide-react';
 
 const GameCategories = () => {
   const games = [
@@ -12,8 +13,9 @@ const GameCategories = () => {
       image: '/placeholder.svg',
       totalListings: '2,847',
       priceRange: '₦15,000 - ₦500,000',
-      popularTags: ['Mythic', 'Legendary', 'Damascus'],
-      gradient: 'from-orange-500 to-red-600'
+      popularTags: ['Mythic Weapons', 'Legendary Skins', 'Damascus'],
+      gradient: 'from-orange-500/20 to-red-600/20',
+      borderGlow: 'hover:shadow-[0_0_30px_rgba(255,69,58,0.3)]'
     },
     {
       id: 'pubg',
@@ -22,8 +24,9 @@ const GameCategories = () => {
       image: '/placeholder.svg',
       totalListings: '1,923',
       priceRange: '₦10,000 - ₦300,000',
-      popularTags: ['Conqueror', 'Mythic Outfit', 'Rare Skins'],
-      gradient: 'from-blue-500 to-purple-600'
+      popularTags: ['Conqueror Rank', 'Mythic Outfits', 'Rare Skins'],
+      gradient: 'from-blue-500/20 to-purple-600/20',
+      borderGlow: 'hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]'
     },
     {
       id: 'freefire',
@@ -33,62 +36,84 @@ const GameCategories = () => {
       totalListings: '3,156',
       priceRange: '₦5,000 - ₦200,000',
       popularTags: ['Elite Pass', 'Diamonds', 'DJ Alok'],
-      gradient: 'from-yellow-500 to-orange-600'
+      gradient: 'from-yellow-500/20 to-orange-600/20',
+      borderGlow: 'hover:shadow-[0_0_30px_rgba(255,193,7,0.3)]'
     }
   ];
 
   return (
-    <section className="py-16 bg-gt-card/30">
+    <section className="py-20 bg-gt-card/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-poppins font-bold mb-4">
-            Choose Your Game
+        {/* Section Header */}
+        <div className="text-center mb-16 animate-fade-in-up">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+            <span className="text-gt-text">Choose Your</span>{' '}
+            <span className="bg-gradient-to-r from-gt-primary to-gt-secondary bg-clip-text text-transparent">
+              Gaming Platform
+            </span>
           </h2>
           <p className="text-xl text-gt-text/70 max-w-2xl mx-auto">
-            Browse accounts for your favorite mobile games. All listings verified and protected by escrow.
+            Browse verified accounts across the most popular mobile gaming platforms. 
+            All listings protected by our advanced escrow system.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {games.map((game) => (
-            <Link key={game.id} to={`/game/${game.slug}`} className="group">
-              <Card className="bg-gt-card border-gt-border game-card-hover overflow-hidden">
-                <div className={`h-48 bg-gradient-to-br ${game.gradient} relative`}>
-                  <div className="absolute inset-0 bg-black/20" />
+        {/* Game Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          {games.map((game, index) => (
+            <Link 
+              key={game.id} 
+              to={`/game/${game.slug}`} 
+              className="group animate-fade-in-up"
+              style={{ animationDelay: `${index * 200}ms` }}
+            >
+              <Card className={`gt-card overflow-hidden transition-all duration-500 ${game.borderGlow} group-hover:scale-[1.02]`}>
+                {/* Game Header */}
+                <div className={`h-32 bg-gradient-to-br ${game.gradient} relative border-b border-gt-border/30`}>
+                  <div className="absolute inset-0 bg-gradient-to-br from-gt-background/20 to-transparent" />
                   <div className="absolute top-4 right-4">
-                    <Badge className="bg-white/20 text-white border-white/30">
-                      {game.totalListings} listings
+                    <Badge className="gt-badge">
+                      <TrendingUp className="w-3 h-3 mr-1" />
+                      {game.totalListings}
                     </Badge>
                   </div>
                   <div className="absolute bottom-4 left-4">
-                    <h3 className="font-poppins font-bold text-2xl text-white mb-2">
+                    <h3 className="font-heading font-bold text-xl text-gt-text mb-1">
                       {game.name}
                     </h3>
-                    <p className="text-white/80 font-medium">
+                    <p className="text-gt-text/80 font-mono text-sm font-medium">
                       {game.priceRange}
                     </p>
                   </div>
                 </div>
                 
                 <CardContent className="p-6">
-                  <div className="flex flex-wrap gap-2">
+                  {/* Popular Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {game.popularTags.map((tag) => (
                       <Badge 
                         key={tag} 
-                        variant="secondary" 
-                        className="bg-gt-gold/20 text-gt-gold border-gt-gold/30 hover:bg-gt-gold/30"
+                        className="gt-badge text-xs"
                       >
                         {tag}
                       </Badge>
                     ))}
                   </div>
                   
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-gt-text/60">
-                      Browse accounts →
-                    </span>
-                    <div className="w-8 h-8 bg-gt-gold/20 rounded-full flex items-center justify-center group-hover:bg-gt-gold/30 transition-colors">
-                      <span className="text-gt-gold text-sm">→</span>
+                  {/* Card Footer */}
+                  <div className="flex items-center justify-between pt-4 border-t border-gt-border/30">
+                    <div className="flex items-center space-x-4 text-sm text-gt-text/60">
+                      <div className="flex items-center space-x-1">
+                        <Users className="w-4 h-4" />
+                        <span>Active</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Shield className="w-4 h-4" />
+                        <span>Verified</span>
+                      </div>
+                    </div>
+                    <div className="w-8 h-8 bg-gt-primary/20 rounded-full flex items-center justify-center group-hover:bg-gt-primary/30 transition-colors">
+                      <span className="text-gt-primary text-sm">→</span>
                     </div>
                   </div>
                 </CardContent>
@@ -97,10 +122,12 @@ const GameCategories = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        {/* View All CTA */}
+        <div className="text-center animate-fade-in-up delay-600">
           <Link to="/marketplace">
-            <button className="text-gt-gold hover:text-gt-gold/80 font-semibold text-lg transition-colors">
-              View All Games →
+            <button className="gt-button-ghost text-lg group">
+              View All Gaming Platforms
+              <TrendingUp className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
           </Link>
         </div>

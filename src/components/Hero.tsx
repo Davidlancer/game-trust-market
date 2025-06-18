@@ -1,98 +1,91 @@
 
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Shield, Users, Zap, Star } from 'lucide-react';
+import { Shield, Zap, Users, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section className="relative pt-24 pb-16 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gt-gold/5 via-transparent to-gt-blue/5" />
-      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-gt-gold/10 rounded-full blur-3xl -translate-y-1/2" />
-      <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gt-blue/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-gt-background via-gt-background to-gt-card"></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gt-primary/5 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gt-secondary/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Trust Badge */}
-          <Badge className="mb-6 bg-gt-success/20 text-gt-success border-gt-success/30 hover:bg-gt-success/30">
-            <Shield className="w-4 h-4 mr-2" />
-            Secure Escrow Protection
-          </Badge>
-
-          {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-poppins font-bold mb-6 leading-tight">
-            Securely Buy & Sell
-            <span className="block gradient-gold bg-clip-text text-transparent">
-              Game Accounts
+      <div className="relative container mx-auto px-4 text-center">
+        {/* Main Headline */}
+        <div className="max-w-4xl mx-auto mb-8 animate-fade-in-up">
+          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight">
+            <span className="text-gt-text">Secure Digital</span><br />
+            <span className="bg-gradient-to-r from-gt-primary to-gt-secondary bg-clip-text text-transparent">
+              Game Account Trading
             </span>
           </h1>
-
-          {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-gt-text/80 mb-8 leading-relaxed">
-            Trade PUBG, CODM, and Free Fire accounts with confidence.{' '}
-            <span className="text-gt-gold font-semibold">Your funds are protected</span> until you confirm delivery.
+          <p className="text-xl md:text-2xl text-gt-text/70 mb-8 max-w-2xl mx-auto font-body">
+            Verified digital ownership. Escrow-backed peace of mind. 
+            Your wins, protected by GameBox Arena's trusted infrastructure.
           </p>
+        </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link to="/marketplace">
-              <Button size="lg" className="gradient-gold text-gt-dark hover:scale-105 transition-all duration-300 text-lg px-8 py-4">
-                Browse Accounts
-              </Button>
-            </Link>
-            <Link to="/sell">
-              <Button size="lg" variant="outline" className="border-gt-gold text-gt-gold hover:bg-gt-gold hover:text-gt-dark transition-all duration-300 text-lg px-8 py-4">
-                Sell Your Account
-              </Button>
-            </Link>
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up delay-200">
+          <Link to="/marketplace">
+            <Button className="gt-button-primary text-lg px-8 py-4 group">
+              Browse Accounts
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
+          <Link to="/sell">
+            <Button className="gt-button-secondary text-lg px-8 py-4">
+              Start Selling
+            </Button>
+          </Link>
+        </div>
+
+        {/* Trust Indicators */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto animate-fade-in-up delay-400">
+          <div className="gt-card p-6 text-center gt-hover-lift">
+            <div className="w-16 h-16 bg-gt-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <Shield className="w-8 h-8 text-gt-primary" />
+            </div>
+            <h3 className="font-heading font-semibold text-lg mb-2">Escrow Protection</h3>
+            <p className="text-gt-text/70">Funds held securely until transaction completion</p>
           </div>
-
-          {/* Trust Indicators */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="flex flex-col items-center p-6 bg-gt-card/50 rounded-xl border border-gt-border game-card-hover">
-              <div className="w-12 h-12 bg-gt-gold/20 rounded-full flex items-center justify-center mb-4">
-                <Shield className="w-6 h-6 text-gt-gold" />
-              </div>
-              <h3 className="font-poppins font-semibold text-lg mb-2">Escrow Protection</h3>
-              <p className="text-gt-text/70 text-center">Funds held safely until delivery confirmed</p>
+          
+          <div className="gt-card p-6 text-center gt-hover-lift">
+            <div className="w-16 h-16 bg-gt-secondary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <Zap className="w-8 h-8 text-gt-secondary" />
             </div>
-
-            <div className="flex flex-col items-center p-6 bg-gt-card/50 rounded-xl border border-gt-border game-card-hover">
-              <div className="w-12 h-12 bg-gt-blue/20 rounded-full flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-gt-blue" />
-              </div>
-              <h3 className="font-poppins font-semibold text-lg mb-2">Verified Sellers</h3>
-              <p className="text-gt-text/70 text-center">All sellers undergo verification process</p>
-            </div>
-
-            <div className="flex flex-col items-center p-6 bg-gt-card/50 rounded-xl border border-gt-border game-card-hover">
-              <div className="w-12 h-12 bg-gt-success/20 rounded-full flex items-center justify-center mb-4">
-                <Zap className="w-6 h-6 text-gt-success" />
-              </div>
-              <h3 className="font-poppins font-semibold text-lg mb-2">Instant Delivery</h3>
-              <p className="text-gt-text/70 text-center">Get your account details immediately</p>
-            </div>
+            <h3 className="font-heading font-semibold text-lg mb-2">Instant Verification</h3>
+            <p className="text-gt-text/70">AI-powered account validation & fraud detection</p>
           </div>
+          
+          <div className="gt-card p-6 text-center gt-hover-lift">
+            <div className="w-16 h-16 bg-gt-warning/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <Users className="w-8 h-8 text-gt-warning" />
+            </div>
+            <h3 className="font-heading font-semibold text-lg mb-2">Trusted Community</h3>
+            <p className="text-gt-text/70">50K+ verified traders, zero tolerance policy</p>
+          </div>
+        </div>
 
-          {/* Social Proof */}
-          <div className="mt-12 flex items-center justify-center space-x-6 text-gt-text/60">
-            <div className="flex items-center space-x-2">
-              <Star className="w-5 h-5 text-gt-gold fill-current" />
-              <span className="text-lg font-semibold text-gt-text">4.9/5</span>
-              <span>Rating</span>
+        {/* Stats Bar */}
+        <div className="mt-16 pt-8 border-t border-gt-border animate-fade-in-up delay-600">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-2xl md:text-3xl font-mono font-bold text-gt-primary mb-1">50K+</div>
+              <div className="text-sm text-gt-text/60">Active Traders</div>
             </div>
-            <div className="w-px h-6 bg-gt-border" />
-            <div className="flex items-center space-x-2">
-              <Users className="w-5 h-5 text-gt-blue" />
-              <span className="text-lg font-semibold text-gt-text">50K+</span>
-              <span>Trusted Users</span>
+            <div>
+              <div className="text-2xl md:text-3xl font-mono font-bold text-gt-secondary mb-1">₦2.5B+</div>
+              <div className="text-sm text-gt-text/60">Secured Volume</div>
             </div>
-            <div className="w-px h-6 bg-gt-border" />
-            <div className="flex items-center space-x-2">
-              <Shield className="w-5 h-5 text-gt-success" />
-              <span className="text-lg font-semibold text-gt-text">99.9%</span>
-              <span>Safe Trades</span>
+            <div>
+              <div className="text-2xl md:text-3xl font-mono font-bold text-gt-primary mb-1">99.8%</div>
+              <div className="text-sm text-gt-text/60">Success Rate</div>
+            </div>
+            <div>
+              <div className="text-2xl md:text-3xl font-mono font-bold text-gt-secondary mb-1">24/7</div>
+              <div className="text-sm text-gt-text/60">Support</div>
             </div>
           </div>
         </div>

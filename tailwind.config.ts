@@ -20,8 +20,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'poppins': ['Poppins', 'sans-serif'],
-				'inter': ['Inter', 'sans-serif'],
+				'heading': ['Manrope', 'sans-serif'], // Premium heading font
+				'body': ['Inter', 'sans-serif'], // Clean body font
+				'mono': ['Space Grotesk', 'monospace'], // Data/numbers font
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -57,72 +58,71 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				// GameTrust Professional Brand Colors
+				'gt': {
+					'background': '#0E0E10', // Rich black with subtle blue tint
+					'primary': '#FFD166', // Gold honey - prestige & clarity
+					'secondary': '#00C9A7', // Mint tech green - modern & fresh
+					'text': '#F2F2F2', // Clean white-grey
+					'card': '#1A1B1E', // Deep slate for containers
+					'border': '#2C2F36', // Stealth elegant lines
+					'danger': '#FF4E4E', // Sharp red for alerts
+					'warning': '#F39C12', // Gold-orange for warnings
 				},
-				// GameTrust Brand Colors
-				'gt-dark': '#0A0A0A',
-				'gt-card': '#1A1A1A',
-				'gt-border': '#2E2E2E',
-				'gt-text': '#F5F5F5',
-				'gt-gold': '#FFB800',
-				'gt-blue': '#1E90FF',
-				'gt-success': '#00C897',
-				'gt-danger': '#FF4D4D',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			boxShadow: {
+				'gt-glow': '0 0 20px rgba(255, 209, 102, 0.3)',
+				'gt-glow-mint': '0 0 20px rgba(0, 201, 167, 0.3)',
+				'gt-card': '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
+			},
 			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
-				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				},
-				'fade-in': {
+				'fade-in-up': {
 					'0%': {
 						opacity: '0',
-						transform: 'translateY(10px)'
+						transform: 'translateY(20px)'
 					},
 					'100%': {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
 				},
+				'slide-in-right': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateX(100%)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateX(0)'
+					}
+				},
 				'glow-pulse': {
 					'0%, 100%': {
-						boxShadow: '0 0 20px rgba(255, 184, 0, 0.3)'
+						boxShadow: '0 0 20px rgba(255, 209, 102, 0.3)'
 					},
 					'50%': {
-						boxShadow: '0 0 30px rgba(255, 184, 0, 0.5)'
+						boxShadow: '0 0 30px rgba(255, 209, 102, 0.6)'
+					}
+				},
+				'mint-glow-pulse': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px rgba(0, 201, 167, 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 30px rgba(0, 201, 167, 0.6)'
 					}
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.3s ease-out',
+				'fade-in-up': 'fade-in-up 0.6s ease-out',
+				'slide-in-right': 'slide-in-right 0.5s ease-out',
 				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+				'mint-glow-pulse': 'mint-glow-pulse 2s ease-in-out infinite',
 			}
 		}
 	},
